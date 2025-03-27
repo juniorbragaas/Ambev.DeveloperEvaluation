@@ -9,7 +9,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
     /// Represents a sale in the system with its details and business rules validation.
     /// This entity follows domain-driven design principles and includes business rules validation.
     /// </summary>
-    public class Venda : BaseEntity
+    public class Venda
     {
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <summary>
         /// Gets or sets the list of products sold in the sale.
         /// </summary>
-        public List<Produto> Products { get; set; } = new List<Produto>();
+        public List<ProdutosVenda> Products { get; set; } = new List<ProdutosVenda>();
 
         /// <summary>
         /// Gets or sets whether the sale was cancelled or not.

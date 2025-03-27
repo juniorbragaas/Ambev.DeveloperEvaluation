@@ -10,7 +10,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
     /// Represents a customer in the system with profile information and business rules validation.
     /// This entity follows domain-driven design principles and includes business rules validation.
     /// </summary>
-    public class Cliente : BaseEntity
+    public class Cliente
     {
         /// <summary>
         /// Gets the customer's full name.

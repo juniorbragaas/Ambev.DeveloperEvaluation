@@ -27,25 +27,21 @@
     "Products": [
       {
         "Id": "1",
-        "Nome": "Produto Exemplo",
-        "Codigo": "12345ABC",
-        "Preco": 199.99,
-        "PrecoComDesconto": 149.99,
-        "QuantidadeEmEstoque": 50,
-        "Categoria": "Eletrônicos",
-        "CriadoEm": "2025-03-27T12:34:56.789Z",
-        "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+        "PrecoUnitario": 199.99,
+        "Quantidade": 50,
+        "PrecoTotal": 199.99,
+        "PercentualDesconto": 0.0,
+        "PrecoTotalDesconto": 0.0,
+        "PrecoTotalAPagar": 0.0
       },
       {
         "Id": "2",
-        "Nome": "Produto Exemplo2",
-        "Codigo": "12345ABC",
-        "Preco": 199.99,
-        "PrecoComDesconto": 149.99,
-        "QuantidadeEmEstoque": 50,
-        "Categoria": "Eletrônicos",
-        "CriadoEm": "2025-03-27T12:34:56.789Z",
-        "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+        "PrecoUnitario": 199.99,
+        "Quantidade": 50,
+        "PrecoTotal": 199.99,
+        "PercentualDesconto": 0.0,
+        "PrecoTotalDesconto": 0.0,
+        "PrecoTotalAPagar": 0.0
       }
     ],
     "Cancelada": false,
@@ -53,9 +49,9 @@
     "AtualizadoEm": "2025-03-27T12:34:56.789Z"
   },
   {
-    "Id": "757736b9-0584-43f6-83f6-e2410e9813ee",
+    "Id": "cbcdbfa0-ab9c-4be0-b16c-37679357af93",
     "NumeroVenda": "string",
-    "DataVenda": "2025-03-27T19:50:38.858Z",
+    "DataVenda": "2025-03-27T20:44:06.375Z",
     "Cliente": {
       "Id": "string",
       "Nome": "string",
@@ -80,14 +76,12 @@
     "Products": [
       {
         "Id": "string",
-        "Nome": "string",
-        "Codigo": "string",
-        "Preco": 0.0,
-        "PrecoComDesconto": 0.0,
-        "QuantidadeEmEstoque": 0,
-        "Categoria": "string",
-        "CriadoEm": "string",
-        "AtualizadoEm": "string"
+        "PrecoUnitario": 0.0,
+        "Quantidade": 0,
+        "PrecoTotal": 0.0,
+        "PercentualDesconto": 0.0,
+        "PrecoTotalDesconto": 0.0,
+        "PrecoTotalAPagar": 0.0
       }
     ],
     "Cancelada": true,

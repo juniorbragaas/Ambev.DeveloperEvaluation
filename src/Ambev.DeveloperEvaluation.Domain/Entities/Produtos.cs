@@ -9,7 +9,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
     /// Represents a product in the system with its details and business rules validation.
     /// This entity follows domain-driven design principles and includes business rules validation.
     /// </summary>
-    public class Produto : BaseEntity
+    public class Produto
     {
         /// <summary>
         /// Gets or sets the product's name.
