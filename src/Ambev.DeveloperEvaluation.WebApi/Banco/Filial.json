@@ -1,0 +1,11 @@
+[
+  {
+    "Id": "1",
+    "Nome": "Filial Centro",
+    "Endereco": "Rua das Flores, 123, Centro, Cidade, Estado, 12345-678",
+    "Telefone": "(11) 98765-4321",
+    "Email": "contato@filialcentro.com",
+    "CriadoEm": "2025-03-27T12:34:56.789Z",
+    "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+  }
+]

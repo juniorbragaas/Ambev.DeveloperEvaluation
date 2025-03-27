@@ -1,0 +1,14 @@
+[
+{
+  "Id" : "1",
+  "Nome": "Produto Exemplo",
+  "Codigo": "12345ABC",
+  "Preco": 199.99,
+  "PrecoComDesconto": 149.99,
+  "QuantidadeEmEstoque": 50,
+  "Categoria": "Eletrônicos",
+  "CriadoEm": "2025-03-27T12:34:56.789Z",
+  "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+}
+
+]

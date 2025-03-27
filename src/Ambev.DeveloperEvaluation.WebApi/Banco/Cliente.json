@@ -1,0 +1,12 @@
+[
+{
+  "Id" : "1",
+  "Nome": "João da Silva",
+  "Email": "joao.silva@example.com",
+  "Telefone": "(11) 91234-5678",
+  "Endereco": "Rua Fictícia, 123, Bairro, Cidade, Estado, 12345-678",
+  "CriadoEm": "2025-03-27T12:34:56.789Z",
+  "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+}
+
+]

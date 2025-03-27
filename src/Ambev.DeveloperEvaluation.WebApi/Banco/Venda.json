@@ -1,0 +1,55 @@
+[
+{
+  "Id": "1",
+  "NumeroVenda": "V12345",
+  "DataVenda": "2025-03-27T12:34:56.789Z",
+    "Cliente": {
+        "Id": "1",
+        "Nome": "João da Silva",
+        "Email": "joao.silva@example.com",
+        "Telefone": "(11) 91234-5678",
+        "Endereco": "Rua Fictícia, 123, Bairro, Cidade, Estado, 12345-678",
+        "CriadoEm": "2025-03-27T12:34:56.789Z",
+        "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+    },
+  "ValorTotalBruto": 500.00,
+  "ValorTotalDesconto": 50.00,
+  "ValorFinal": 450.00,
+  "Filial": {
+	"Id": "1",
+    "Nome": "Filial Centro",
+    "Endereco": "Rua Principal, 100, Centro, Cidade, Estado, 54321-123",
+    "Telefone": "(11) 12345-6789",
+    "Email": "filial@exemplo.com"
+  },
+  "Products": [
+    {
+        "Id": "1",
+        "Nome": "Produto Exemplo",
+        "Codigo": "12345ABC",
+        "Preco": 199.99,
+        "PrecoComDesconto": 149.99,
+        "QuantidadeEmEstoque": 50,
+        "Categoria": "Eletrônicos",
+        "CriadoEm": "2025-03-27T12:34:56.789Z",
+        "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+    },
+    {
+        "Id": "2",
+        "Nome": "Produto Exemplo2",
+        "Codigo": "12345ABC",
+        "Preco": 199.99,
+        "PrecoComDesconto": 149.99,
+        "QuantidadeEmEstoque": 50,
+        "Categoria": "Eletrônicos",
+        "CriadoEm": "2025-03-27T12:34:56.789Z",
+        "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+    }
+  ],
+  "Cancelada": false,
+  "DataDaVenda": "2025-03-27T12:34:56.789Z",
+  "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+}
+
+
+]

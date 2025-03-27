@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Ambev.DeveloperEvaluation.Domain.Entities;
 
 namespace Ambev.DeveloperEvaluation.Domain.Repositories;
@@ -5,7 +6,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Repositories;
 /// <summary>
 /// Repository interface for User entity operations
 /// </summary>
-public interface IFiliaLRepository
+public interface IFilialRepository
 {
     /// <summary>
     /// Creates a new user in the repository
@@ -13,7 +14,23 @@ public interface IFiliaLRepository
     /// <param name="user">The user to create</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The created user</returns>
-    Task<User> CreateAsync(Filial filial, CancellationToken cancellationToken = default);
+    Task<Filial> CreateAsync(Filial filial);
+
+    /// <summary>
+    /// Creates a new user in the repository
+    /// </summary>
+    /// <param name="user">The user to create</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The created user</returns>
+    Task<List<Filial>> ListFiliais();
+
+    /// <summary>
+    /// Creates a new user in the repository
+    /// </summary>
+    /// <param name="user">The user to create</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The created user</returns>
+    Task<Filial> UpdateAsync(Filial filial, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Retrieves a user by their unique identifier
@@ -21,15 +38,9 @@ public interface IFiliaLRepository
     /// <param name="id">The unique identifier of the user</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The user if found, null otherwise</returns>
-    Task<User?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+    Task<Filial?> GetByIdAsync(string id, CancellationToken cancellationToken = default);
 
-    /// <summary>
-    /// Retrieves a user by their email address
-    /// </summary>
-    /// <param name="email">The email address to search for</param>
-    /// <param name="cancellationToken">Cancellation token</param>
-    /// <returns>The user if found, null otherwise</returns>
-    Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
+    
 
     /// <summary>
     /// Deletes a user from the repository
@@ -37,5 +48,5 @@ public interface IFiliaLRepository
     /// <param name="id">The unique identifier of the user to delete</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>True if the user was deleted, false if not found</returns>
-    Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default);
+    Task<bool> DeleteAsync(string id, CancellationToken cancellationToken = default);
 }

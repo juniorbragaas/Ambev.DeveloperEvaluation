@@ -9,8 +9,9 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
     /// Represents a branch (filial) in the system with its details and business rules validation.
     /// This entity follows domain-driven design principles and includes business rules validation.
     /// </summary>
-    public class Filial : BaseEntity
+    public class Filial 
     {
+        public string Id { get; set; } = string.Empty;
         /// <summary>
         /// Gets or sets the branch's name.
         /// Must not be null or empty and should represent the branch's descriptive name.
@@ -38,21 +39,12 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <summary>
         /// Gets the date and time when the branch was created.
         /// </summary>
-        public DateTime CriadoEm { get; set; }
+        public string CriadoEm { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets the date and time of the last update to the branch's information.
         /// </summary>
-        public DateTime? AtualizadoEm { get; set; }
+        public string AtualizadoEm { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Initializes a new instance of the Filial class.
-        /// </summary>
-        public Filial()
-        {
-            CriadoEm = DateTime.UtcNow;
-        }
-
-       
     }
 }
