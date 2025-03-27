@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using Ambev.DeveloperEvaluation.WebApi.Common;
-using Ambev.DeveloperEvaluation.WebApi.Features.Produtos.CreateProdutos;
+using Ambev.DeveloperEvaluation.Domain.Repositories;
+using Ambev.DeveloperEvaluation.Domain.Entities;
+using Ambev.DeveloperEvaluation.ORM.Repositories;
 
-namespace Ambev.DeveloperEvaluation.WebApi.Features.Produtos;
+namespace Ambev.DeveloperEvaluation.WebApi.Features.Clientes;
 
 /// <summary>
 /// Controller for managing user operations
@@ -15,16 +17,18 @@ public class ProdutosController : BaseController
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
+    private readonly IProdutoRepository _ProdutosRepository;
 
     /// <summary>
     /// Initializes a new instance of UsersController
     /// </summary>
     /// <param name="mediator">The mediator instance</param>
     /// <param name="mapper">The AutoMapper instance</param>
-    public ProdutosController(IMediator mediator, IMapper mapper)
+    public ProdutosController(IMediator mediator, IMapper mapper, IProdutoRepository ProdutosRepository)
     {
         _mediator = mediator;
         _mapper = mapper;
+        _ProdutosRepository = ProdutosRepository;
     }
 
     /// <summary>
@@ -34,11 +38,28 @@ public class ProdutosController : BaseController
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The created user details</returns>
     [HttpPost]
-    //[ProducesResponseType(typeof(ApiResponseWithData<CreateProdutosResponse>), StatusCodes.Status201Created)]
+    //[ProducesResponseType(typeof(ApiResponseWithData<CreateClientesResponse>), StatusCodes.Status201Created)]
     //[ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> CreateProdutos([FromBody] CreateProdutosRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateProdutos([FromBody] Produto request)
     {
-        return Ok("Precisa Implementar o Codigo");
+        var Produtos = _ProdutosRepository.CreateAsync(request);
+        return Ok(Produtos);
+    }
+
+    /// <summary>
+    /// Retrieves a user by their ID
+    /// </summary>
+    /// <param name="id">The unique identifier of the user</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The user details if found</returns>
+    [HttpGet("ListarTodos")]
+    //[ProducesResponseType(typeof(ApiResponseWithData<GetClientesResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> ListarProdutos()
+    {
+        var Produtos = _ProdutosRepository.ListProdutos();
+        return Ok(Produtos);
     }
 
     /// <summary>
@@ -48,12 +69,14 @@ public class ProdutosController : BaseController
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The user details if found</returns>
     [HttpGet("{id}")]
-    //[ProducesResponseType(typeof(ApiResponseWithData<GetProdutosResponse>), StatusCodes.Status200OK)]
+    //[ProducesResponseType(typeof(ApiResponseWithData<GetClientesResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetProdutos([FromRoute] Guid id, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetProdutos([FromRoute] string id)
     {
-        return Ok("Precisa Implementar o Codigo");
+
+        var resultado = _ProdutosRepository.GetByIdAsync(id);
+        return Ok(resultado);
     }
 
     /// <summary>
@@ -66,8 +89,9 @@ public class ProdutosController : BaseController
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> DeleteProdutos([FromRoute] Guid id, CancellationToken cancellationToken)
+    public async Task<IActionResult> DeleteProdutos([FromRoute] string id, CancellationToken cancellationToken)
     {
-        return Ok("Precisa Implementar o Codigo");
+        var resultado = _ProdutosRepository.DeleteAsync(id);
+        return Ok(resultado);
     }
 }

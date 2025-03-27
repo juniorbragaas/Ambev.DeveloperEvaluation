@@ -9,8 +9,14 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
     /// Represents a product in the system with its details and business rules validation.
     /// This entity follows domain-driven design principles and includes business rules validation.
     /// </summary>
-    public class Produtos : BaseEntity
+    public class Produto : BaseEntity
     {
+        /// <summary>
+        /// Gets or sets the product's name.
+        /// Must not be null or empty and should represent the product's descriptive name.
+        /// </summary>
+        public string Id { get; set; } = string.Empty;
+
         /// <summary>
         /// Gets or sets the product's name.
         /// Must not be null or empty and should represent the product's descriptive name.
@@ -50,22 +56,19 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <summary>
         /// Gets the date and time when the product was created.
         /// </summary>
-        public DateTime CriadoEm { get; set; }
+        public string CriadoEm { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets the date and time of the last update to the product's information.
         /// </summary>
-        public DateTime? AtualizadoEm { get; set; }
+        public string AtualizadoEm { get; set; } = string.Empty;
 
         /// <summary>
         /// Initializes a new instance of the Product class.
         /// </summary>
-        public Produtos()
-        {
-            CriadoEm = DateTime.UtcNow;
-        }
 
-        
+
+
     }
 }
 

@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using Ambev.DeveloperEvaluation.WebApi.Common;
-using Ambev.DeveloperEvaluation.WebApi.Features.Clientes.CreateCliente;
+using Ambev.DeveloperEvaluation.Domain.Repositories;
+using Ambev.DeveloperEvaluation.Domain.Entities;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Clientes;
 
@@ -15,16 +16,18 @@ public class ClientesController : BaseController
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
+    private readonly IClienteRepository _ClienteRepository;
 
     /// <summary>
     /// Initializes a new instance of UsersController
     /// </summary>
     /// <param name="mediator">The mediator instance</param>
     /// <param name="mapper">The AutoMapper instance</param>
-    public ClientesController(IMediator mediator, IMapper mapper)
+    public ClientesController(IMediator mediator, IMapper mapper, IClienteRepository ClienteRepository)
     {
         _mediator = mediator;
         _mapper = mapper;
+        _ClienteRepository = ClienteRepository;
     }
 
     /// <summary>
@@ -36,9 +39,26 @@ public class ClientesController : BaseController
     [HttpPost]
     //[ProducesResponseType(typeof(ApiResponseWithData<CreateClientesResponse>), StatusCodes.Status201Created)]
     //[ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> CreateClientes([FromBody] CreateClienteRequest request, CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateClientes([FromBody] Cliente request)
     {
-        return Ok("Precisa Implementar o Codigo");
+        var Clientes = _ClienteRepository.CreateAsync(request);
+        return Ok(Clientes);
+    }
+
+    /// <summary>
+    /// Retrieves a user by their ID
+    /// </summary>
+    /// <param name="id">The unique identifier of the user</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The user details if found</returns>
+    [HttpGet("ListarTodos")]
+    //[ProducesResponseType(typeof(ApiResponseWithData<GetClientesResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> ListarClientes()
+    {
+        var Clientes = _ClienteRepository.ListClientes();
+        return Ok(Clientes);
     }
 
     /// <summary>
@@ -51,9 +71,11 @@ public class ClientesController : BaseController
     //[ProducesResponseType(typeof(ApiResponseWithData<GetClientesResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetClientes([FromRoute] Guid id, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetClientes([FromRoute] string id)
     {
-        return Ok("Precisa Implementar o Codigo");
+
+        var resultado = _ClienteRepository.GetByIdAsync(id);
+        return Ok(resultado);
     }
 
     /// <summary>
@@ -66,8 +88,9 @@ public class ClientesController : BaseController
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> DeleteClientes([FromRoute] Guid id, CancellationToken cancellationToken)
+    public async Task<IActionResult> DeleteClientes([FromRoute] string id, CancellationToken cancellationToken)
     {
-        return Ok("Precisa Implementar o Codigo");
+        var resultado = _ClienteRepository.DeleteAsync(id);
+        return Ok(resultado);
     }
 }

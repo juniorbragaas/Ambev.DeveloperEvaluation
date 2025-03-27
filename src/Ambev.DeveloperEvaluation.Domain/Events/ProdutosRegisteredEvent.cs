@@ -4,9 +4,9 @@ namespace Ambev.DeveloperEvaluation.Domain.Events
 {
     public class ProdutosRegisteredEvent
     {
-        public Produtos Produtos { get; }
+        public Produto Produtos { get; }
 
-        public ProdutosRegisteredEvent(Produtos Produtos)
+        public ProdutosRegisteredEvent(Produto Produtos)
         {
             Produtos = Produtos;
         }

@@ -15,6 +15,7 @@ public class FilialRepository : IFilialRepository
     public async Task<Filial> CreateAsync(Filial filial)
     {
         var filiais = await Ler();
+        filial.Id = Guid.NewGuid().ToString();
         filiais.Add(filial);
         Salvar(filiais);
         return filial;
@@ -23,7 +24,8 @@ public class FilialRepository : IFilialRepository
     public async Task<bool> DeleteAsync(string id, CancellationToken cancellationToken = default)
     {
         var filiais = await Ler();
-        filiais.RemoveAt(Convert.ToInt16(id)-1);
+        var p = filiais.FindIndex(p => p.Id.Equals(id, StringComparison.OrdinalIgnoreCase));
+        filiais.RemoveAt(p);
         Salvar(filiais);
         return true;
     }
@@ -50,9 +52,14 @@ public class FilialRepository : IFilialRepository
         return dado;
     }
 
-    public Task<Filial> UpdateAsync(Filial filial, CancellationToken cancellationToken = default)
+    public async Task<bool> UpdateAsync(string id,Filial filial, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var filiais = await Ler();
+        var p = filiais.FindIndex(p => p.Id.Equals(id, StringComparison.OrdinalIgnoreCase));
+        filiais[p] = filial;
+        Salvar(filiais);
+        return true;
+        
     }
 
     static void Salvar(List<Filial> filial)

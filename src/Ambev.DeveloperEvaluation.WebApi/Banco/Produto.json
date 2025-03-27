@@ -1,14 +1,24 @@
 [
-{
-  "Id" : "1",
-  "Nome": "Produto Exemplo",
-  "Codigo": "12345ABC",
-  "Preco": 199.99,
-  "PrecoComDesconto": 149.99,
-  "QuantidadeEmEstoque": 50,
-  "Categoria": "Eletrônicos",
-  "CriadoEm": "2025-03-27T12:34:56.789Z",
-  "AtualizadoEm": "2025-03-27T12:34:56.789Z"
-}
-
+  {
+    "Id": "1",
+    "Nome": "Produto Exemplo",
+    "Codigo": "12345ABC",
+    "Preco": 199.99,
+    "PrecoComDesconto": 149.99,
+    "QuantidadeEmEstoque": 50,
+    "Categoria": "Eletrônicos",
+    "CriadoEm": "2025-03-27T12:34:56.789Z",
+    "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+  },
+  {
+    "Id": "41a8907f-9e2a-4bcb-bf54-8bce524fc175",
+    "Nome": "Camisa",
+    "Codigo": "string",
+    "Preco": 0.0,
+    "PrecoComDesconto": 0.0,
+    "QuantidadeEmEstoque": 0,
+    "Categoria": "string",
+    "CriadoEm": "string",
+    "AtualizadoEm": "string"
+  }
 ]

@@ -13,7 +13,23 @@ public interface IProdutoRepository
     /// <param name="user">The user to create</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The created user</returns>
-    Task<User> CreateAsync(Produtos product, CancellationToken cancellationToken = default);
+    Task<Produto> CreateAsync(Produto Produto);
+
+    /// <summary>
+    /// Creates a new user in the repository
+    /// </summary>
+    /// <param name="user">The user to create</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The created user</returns>
+    Task<List<Produto>> ListProdutos();
+
+    /// <summary>
+    /// Creates a new user in the repository
+    /// </summary>
+    /// <param name="user">The user to create</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The created user</returns>
+    Task<bool> UpdateAsync(string id, Produto Produto, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Retrieves a user by their unique identifier
@@ -21,15 +37,9 @@ public interface IProdutoRepository
     /// <param name="id">The unique identifier of the user</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The user if found, null otherwise</returns>
-    Task<User?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+    Task<Produto?> GetByIdAsync(string id, CancellationToken cancellationToken = default);
 
-    /// <summary>
-    /// Retrieves a user by their email address
-    /// </summary>
-    /// <param name="email">The email address to search for</param>
-    /// <param name="cancellationToken">Cancellation token</param>
-    /// <returns>The user if found, null otherwise</returns>
-    Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
+
 
     /// <summary>
     /// Deletes a user from the repository
@@ -37,5 +47,5 @@ public interface IProdutoRepository
     /// <param name="id">The unique identifier of the user to delete</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>True if the user was deleted, false if not found</returns>
-    Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default);
+    Task<bool> DeleteAsync(string id, CancellationToken cancellationToken = default);
 }

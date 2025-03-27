@@ -11,6 +11,12 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
     /// </summary>
     public class Venda : BaseEntity
     {
+
+        /// <summary>
+        /// Gets or sets the sale's unique identifier.
+        /// Must be a unique identifier for the sale.
+        /// </summary>
+        public string Id { get; set; } = string.Empty;
         /// <summary>
         /// Gets or sets the sale's unique identifier.
         /// Must be a unique identifier for the sale.
@@ -44,30 +50,24 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <summary>
         /// Gets or sets the list of products sold in the sale.
         /// </summary>
-        public List<Produtos> Products { get; set; } = new List<Produtos>();
+        public List<Produto> Products { get; set; } = new List<Produto>();
 
         /// <summary>
         /// Gets or sets whether the sale was cancelled or not.
         /// </summary>
-        public bool Cancelada { get; set; }
+        public bool Cancelada { get; set; }  
 
         /// <summary>
         /// Gets the date and time when the sale was created.
         /// </summary>
-        public DateTime DataDaVenda { get; set; }
+        public string DataDaVenda { get; set; } =  string.Empty;
 
         /// <summary>
         /// Gets the date and time of the last update to the sale's information.
         /// </summary>
-        public DateTime? AtualizadoEm { get; set; }
+        public string AtualizadoEm { get; set; }  = string.Empty;
 
-        /// <summary>
-        /// Initializes a new instance of the Venda class.
-        /// </summary>
-        public Venda()
-        {
-            DataDaVenda = DateTime.UtcNow;
-        }
+        
        
     }
 }

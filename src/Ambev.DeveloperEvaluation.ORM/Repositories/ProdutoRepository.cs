@@ -1,6 +1,8 @@
-﻿using Ambev.DeveloperEvaluation.Domain.Entities;
+﻿using System.Xml;
+using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Ambev.DeveloperEvaluation.ORM.Repositories;
 
@@ -9,23 +11,60 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories;
 /// </summary>
 public class ProdutoRepository : IProdutoRepository
 {
-    public Task<User> CreateAsync(Produtos product, CancellationToken cancellationToken = default)
+    private static string caminhoArquivo = "Banco\\Produto.json";
+    public async Task<Produto> CreateAsync(Produto Produto)
     {
-        throw new NotImplementedException();
+        var produtos = await Ler();
+        Produto.Id = Guid.NewGuid().ToString();
+        produtos.Add(Produto);
+        Salvar(produtos);
+        return Produto;
     }
 
-    public Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+    public async Task<bool> DeleteAsync(string id, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var produtos = await Ler();
+        var p = produtos.FindIndex(p => p.Id.Equals(id, StringComparison.OrdinalIgnoreCase));
+        produtos.RemoveAt(p);
+        Salvar(produtos);
+        return true;
     }
 
-    public Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
+    public async Task<Produto> GetByIdAsync(string id, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var produtos = await Ler();
+        var resultado = produtos.ToList().Where(p => p.Id.Equals(id)).ToList().FirstOrDefault();
+        return resultado;
     }
 
-    public Task<User?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+    public async Task<List<Produto>> ListProdutos()
     {
-        throw new NotImplementedException();
+        var produtos = await Ler();
+        return produtos;
+    }
+    public async Task<List<Produto>> Ler()
+    {
+        if (!File.Exists(caminhoArquivo))
+            return new List<Produto>();
+
+        var json = File.ReadAllText(caminhoArquivo);
+        var dado = JsonConvert.DeserializeObject<List<Produto>>(json);
+        return dado;
+    }
+
+    public async Task<bool> UpdateAsync(string id, Produto Produto, CancellationToken cancellationToken = default)
+    {
+        var produtos = await Ler();
+        var p = produtos.FindIndex(p => p.Id.Equals(id, StringComparison.OrdinalIgnoreCase));
+        produtos[p] = Produto;
+        Salvar(produtos);
+        return true;
+
+    }
+
+    static void Salvar(List<Produto> Produto)
+    {
+        var json = JsonConvert.SerializeObject(Produto, Newtonsoft.Json.Formatting.Indented);
+        File.WriteAllText(caminhoArquivo, json);
     }
 }

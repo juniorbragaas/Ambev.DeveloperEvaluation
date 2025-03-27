@@ -16,6 +16,12 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// Gets the customer's full name.
         /// Must not be null or empty and should contain both first and last names.
         /// </summary>
+        public string Id { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets the customer's full name.
+        /// Must not be null or empty and should contain both first and last names.
+        /// </summary>
         public string Nome { get; set; } = string.Empty;
 
         /// <summary>
@@ -41,22 +47,15 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <summary>
         /// Gets the date and time when the customer was created.
         /// </summary>
-        public DateTime CriadoEm { get; set; }
+        public string CriadoEm { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets the date and time of the last update to the customer's information.
         /// </summary>
-        public DateTime? AtualizadoEm { get; set; }
+        public string? AtualizadoEm { get; set; } = string.Empty;
+
 
         
-        /// <summary>
-        /// Initializes a new instance of the Cliente class.
-        /// </summary>
-        public Cliente()
-        {
-            CriadoEm = DateTime.UtcNow;
-        }
-
         
     }
 }

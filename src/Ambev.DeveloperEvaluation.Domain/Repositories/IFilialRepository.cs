@@ -30,7 +30,7 @@ public interface IFilialRepository
     /// <param name="user">The user to create</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The created user</returns>
-    Task<Filial> UpdateAsync(Filial filial, CancellationToken cancellationToken = default);
+    Task<bool> UpdateAsync(string id,Filial filial, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Retrieves a user by their unique identifier

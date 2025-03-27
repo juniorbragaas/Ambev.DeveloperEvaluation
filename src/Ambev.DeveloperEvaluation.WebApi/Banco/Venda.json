@@ -1,29 +1,31 @@
 [
-{
-  "Id": "1",
-  "NumeroVenda": "V12345",
-  "DataVenda": "2025-03-27T12:34:56.789Z",
+  {
+    "Id": "1",
+    "NumeroVenda": "V12345",
+    "DataVenda": "2025-03-27T12:34:56.789Z",
     "Cliente": {
-        "Id": "1",
-        "Nome": "João da Silva",
-        "Email": "joao.silva@example.com",
-        "Telefone": "(11) 91234-5678",
-        "Endereco": "Rua Fictícia, 123, Bairro, Cidade, Estado, 12345-678",
-        "CriadoEm": "2025-03-27T12:34:56.789Z",
-        "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+      "Id": "1",
+      "Nome": "João da Silva",
+      "Email": "joao.silva@example.com",
+      "Telefone": "(11) 91234-5678",
+      "Endereco": "Rua Fictícia, 123, Bairro, Cidade, Estado, 12345-678",
+      "CriadoEm": "2025-03-27T12:34:56.789Z",
+      "AtualizadoEm": "2025-03-27T12:34:56.789Z"
     },
-  "ValorTotalBruto": 500.00,
-  "ValorTotalDesconto": 50.00,
-  "ValorFinal": 450.00,
-  "Filial": {
-	"Id": "1",
-    "Nome": "Filial Centro",
-    "Endereco": "Rua Principal, 100, Centro, Cidade, Estado, 54321-123",
-    "Telefone": "(11) 12345-6789",
-    "Email": "filial@exemplo.com"
-  },
-  "Products": [
-    {
+    "ValorTotalBruto": 500.00,
+    "ValorTotalDesconto": 50.00,
+    "ValorFinal": 450.00,
+    "Filial": {
+      "Id": "1",
+      "Nome": "Filial Centro",
+      "Endereco": "Rua Principal, 100, Centro, Cidade, Estado, 54321-123",
+      "Telefone": "(11) 12345-6789",
+      "Email": "filial@exemplo.com",
+      "CriadoEm": "",
+      "AtualizadoEm": ""
+    },
+    "Products": [
+      {
         "Id": "1",
         "Nome": "Produto Exemplo",
         "Codigo": "12345ABC",
@@ -33,8 +35,8 @@
         "Categoria": "Eletrônicos",
         "CriadoEm": "2025-03-27T12:34:56.789Z",
         "AtualizadoEm": "2025-03-27T12:34:56.789Z"
-    },
-    {
+      },
+      {
         "Id": "2",
         "Nome": "Produto Exemplo2",
         "Codigo": "12345ABC",
@@ -44,12 +46,52 @@
         "Categoria": "Eletrônicos",
         "CriadoEm": "2025-03-27T12:34:56.789Z",
         "AtualizadoEm": "2025-03-27T12:34:56.789Z"
-    }
-  ],
-  "Cancelada": false,
-  "DataDaVenda": "2025-03-27T12:34:56.789Z",
-  "AtualizadoEm": "2025-03-27T12:34:56.789Z"
-}
-
-
+      }
+    ],
+    "Cancelada": false,
+    "DataDaVenda": "2025-03-27T12:34:56.789Z",
+    "AtualizadoEm": "2025-03-27T12:34:56.789Z"
+  },
+  {
+    "Id": "757736b9-0584-43f6-83f6-e2410e9813ee",
+    "NumeroVenda": "string",
+    "DataVenda": "2025-03-27T19:50:38.858Z",
+    "Cliente": {
+      "Id": "string",
+      "Nome": "string",
+      "Email": "string",
+      "Telefone": "string",
+      "Endereco": "string",
+      "CriadoEm": "string",
+      "AtualizadoEm": "string"
+    },
+    "ValorTotalBruto": 0.0,
+    "ValorTotalDesconto": 0.0,
+    "ValorFinal": 0.0,
+    "Filial": {
+      "Id": "string",
+      "Nome": "string",
+      "Endereco": "string",
+      "Telefone": "string",
+      "Email": "string",
+      "CriadoEm": "string",
+      "AtualizadoEm": "string"
+    },
+    "Products": [
+      {
+        "Id": "string",
+        "Nome": "string",
+        "Codigo": "string",
+        "Preco": 0.0,
+        "PrecoComDesconto": 0.0,
+        "QuantidadeEmEstoque": 0,
+        "Categoria": "string",
+        "CriadoEm": "string",
+        "AtualizadoEm": "string"
+      }
+    ],
+    "Cancelada": true,
+    "DataDaVenda": "string",
+    "AtualizadoEm": "string"
+  }
 ]
