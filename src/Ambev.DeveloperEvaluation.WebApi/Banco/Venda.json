@@ -87,5 +87,45 @@
     "Cancelada": true,
     "DataDaVenda": "string",
     "AtualizadoEm": "string"
+  },
+  {
+    "Id": "2f6a1968-48b3-4dcc-a3c2-0b40e0fe1eda",
+    "NumeroVenda": "string",
+    "DataVenda": "2025-03-27T21:19:16.457Z",
+    "Cliente": {
+      "Id": "string",
+      "Nome": "string",
+      "Email": "string",
+      "Telefone": "string",
+      "Endereco": "string",
+      "CriadoEm": "string",
+      "AtualizadoEm": "string"
+    },
+    "ValorTotalBruto": 0.0,
+    "ValorTotalDesconto": 0.0,
+    "ValorFinal": 0.0,
+    "Filial": {
+      "Id": "string",
+      "Nome": "string",
+      "Endereco": "string",
+      "Telefone": "string",
+      "Email": "string",
+      "CriadoEm": "string",
+      "AtualizadoEm": "string"
+    },
+    "Products": [
+      {
+        "Id": "string",
+        "PrecoUnitario": 10.0,
+        "Quantidade": 5,
+        "PrecoTotal": 50.0,
+        "PercentualDesconto": 0.1,
+        "PrecoTotalDesconto": 5.0,
+        "PrecoTotalAPagar": 45.0
+      }
+    ],
+    "Cancelada": true,
+    "DataDaVenda": "string",
+    "AtualizadoEm": "string"
   }
 ]

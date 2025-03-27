@@ -4,6 +4,7 @@ using AutoMapper;
 using Ambev.DeveloperEvaluation.WebApi.Common;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
 using Ambev.DeveloperEvaluation.Domain.Entities;
+using Ambev.DeveloperEvaluation.Application.Users.CreateUser;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Clientes;
 
@@ -41,8 +42,26 @@ public class VendasController : BaseController
     //[ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateVendas([FromBody] Venda request)
     {
-        var Vendas = _VendasRepository.CreateAsync(request);
-        return Ok(Vendas);
+        //Verificando se tem algum produto com desconto
+        var prod = request.Products;
+        foreach (var product in prod)
+        {
+            if(product.Quantidade <= 0 && product.Quantidade > 20)
+            {
+                return Ok("Existem produtos na venda com quantidade acima de 20");
+            }
+            if(product.Quantidade >=4 && product.Quantidade < 10)
+            {
+                VendaBOValidator.DescontoEntre4e9(request, product.Id);
+            }
+            if (product.Quantidade >= 10 && product.Quantidade < 20)
+            {
+                VendaBOValidator.DescontoEntre10e20(request, product.Id);
+            }
+        }
+       VendaBOValidator.CalculoValores(request);
+       var VendasCriada = _VendasRepository.CreateAsync(request);
+       return Ok(VendasCriada);
     }
 
     /// <summary>
