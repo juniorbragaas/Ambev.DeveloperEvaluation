@@ -61,7 +61,7 @@ public class VendasController : BaseController
         }
        VendaBOValidator.CalculoValores(request);
        var VendasCriada = _VendasRepository.CreateAsync(request);
-       return Ok(VendasCriada);
+       return Ok(request);
     }
 
     /// <summary>
